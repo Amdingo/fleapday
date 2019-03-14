@@ -7,7 +7,7 @@
 
 **run the container, binding container port 5000 to your preferred local port:**
 
-`docker run -p 5000:5000 fleapday`
+`docker run -p 5000:5000 -d fleapday`
 
 Access the running container on http://127.0.0.1:5000 (or `docker-machine ip <machine>`)
 
