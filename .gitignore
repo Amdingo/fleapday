@@ -1,3 +1,6 @@
 .idea/
 *.iml
 venv/
+*.egg-info/
+**/**/Pipfile
+**/**/Pipfile.lock
