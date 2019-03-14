@@ -1,4 +1,17 @@
-### To run flask api application:
+## To run flask api application:
+
+### Using Docker:
+**build the container:**
+
+`docker build -t fleapday -f Dockerfile`
+
+**run the container, binding container port 5000 to your preferred local port:**
+
+`docker run -p 5000:5000 fleapday`
+
+Access the running container on http://127.0.0.1:5000 (or `docker-machine ip <machine>`)
+
+### Locally using virtualenv or pipenv
 
 `virtualenv venv` or `pipenv install -r requirements.txt`
 
