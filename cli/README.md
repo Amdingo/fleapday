@@ -3,6 +3,7 @@
 `virtualenv venv`
 - **Windows:** `venv\Scripts\activate`
 - **macOS / linux:** `. venv/bin/activate`
+`pip install --editable .`
 
 ### Functions
 `galy`
