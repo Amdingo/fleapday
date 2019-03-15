@@ -1,0 +1,42 @@
+version: '3.6'
+
+services:
+  fleap:
+    build:
+      context: ./service
+      dockerfile: Dockerfile
+    volumes:
+      - './service:/usr/src/app'
+    ports:
+      - 5001:5000
+    environment:
+      - FLASK_ENV=development
+      - APP_SETTINGS=project.config.DevelopmentConfig
+      - SECRET_KEY=my_precious
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    volumes:
+      - './client:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    ports:
+      - 3007:3000
+    environment:
+      - NODE_ENV=development
+      - REACT_APP_USERS_SERVICe_URL=${REACT_APP_USERS_SERVICE_URL}
+      - CHIKIDAR_USEPOLLING=true
+    depends_on:
+      - fleap
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 80:80
+    depends_on:
+      - fleap
+      - client
