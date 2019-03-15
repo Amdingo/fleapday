@@ -1,0 +1,11 @@
+.is-select-danger>div {
+  border-color: #ff3860 !important;
+}
+
+.is-select-danger>div:focus-within {
+  box-shadow: 0 0 0 0.125em rgba(255, 56, 96, 0.25) !important;
+}
+
+.is-select div:focus {
+  box-shadow: 0 0 0 0.125em rgba(50, 115, 220, 0.25)
+}

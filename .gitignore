@@ -3,4 +3,4 @@
 venv/
 *.egg-info/
 **/**/Pipfile
-**/**/Pipfile.lock
+**/**/Pipfile.lock 0
