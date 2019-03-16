@@ -14,7 +14,7 @@ import {
 } from './shared/validators';
 
 const LeapInput = props => {
-  const { handleSubmit, title } = props;
+  const { handleSubmit, title, leapDay } = props;
   return (
     <div>
       <Heading size={1}>{title}</Heading>
@@ -43,6 +43,13 @@ const LeapInput = props => {
               </Control>
             </Field>
           </Columns.Column>
+          {leapDay ?
+              <Columns.Column size={10}>
+                {leapDay}
+              </Columns.Column>
+              :
+              undefined
+          }
         </Columns>
       </form>
     </div>

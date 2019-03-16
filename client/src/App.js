@@ -72,6 +72,7 @@ export class App extends Component {
                                 title={'Get Leap Day'}
                                 formType={'leap'}
                                 onSubmit={this.handleLeapInputSubmit}
+                                leapDay={this.state.leapDay}
                             />
                         )}
                     />
