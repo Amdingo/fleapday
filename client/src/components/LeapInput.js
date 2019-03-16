@@ -45,7 +45,7 @@ const LeapInput = props => {
           </Columns.Column>
           {leapDay ?
               <Columns.Column size={10}>
-                {leapDay}
+                  <p>{JSON.stringify(leapDay)}</p>
               </Columns.Column>
               :
               undefined

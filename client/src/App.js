@@ -37,15 +37,22 @@ export class App extends Component {
   };
 
   handleLeapInputSubmit = value => {
-    const url = `${process.env.REACT_APP_FLEAP_SERVICE_URL}/api/get-leap-day`;
-    axios
-      .post(url, value)
+    const options = {
+      url: `${process.env.REACT_APP_FLEAP_SERVICE_URL}/api/get-leap-day/${value.year}`,
+      method: 'get',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    };
+    axios(options)
       .then(res => {
         this.props.dispatch(reset('leap'));
-        toast.success(res.data.message);
+        this.setState({leapDay: res.data});
+        toast.success(`In the year ${value.year} leap day falls on a ${res.data.data.leap_day}`);
       })
       .catch(err => {
-        toast.error(err.response.data.message);
+        this.setState({leapDay: ''});
+        toast.error(`${value.year} is not a leap year`);
       });
   };
 
