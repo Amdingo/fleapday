@@ -7,7 +7,7 @@ from .utils import get_all_leap_years as galy,\
 year_blueprint = Blueprint('year', __name__)
 
 
-@year_blueprint.route('/ping', methods=['GET'])
+@year_blueprint.route('/api/ping', methods=['GET'])
 def ping_pong():
     return jsonify({
         'status': 'success',
@@ -15,7 +15,7 @@ def ping_pong():
     })
 
 
-@year_blueprint.route('/is-leap-year/<year>', methods=['GET'])
+@year_blueprint.route('/api/is-leap-year/<year>', methods=['GET'])
 def is_leap_year(year):
     response_object = {
         'status': 'fail',
@@ -39,7 +39,7 @@ def is_leap_year(year):
         return jsonify(response_object), 404
 
 
-@year_blueprint.route('/get-leap-day/<year>', methods=['GET'])
+@year_blueprint.route('/api/get-leap-day/<year>', methods=['GET'])
 def get_leap_day(year):
     response_object = {
         'status': 'fail',
@@ -65,7 +65,7 @@ def get_leap_day(year):
         return jsonify(response_object), 404
 
 
-@year_blueprint.route('/get-all-leap-years')
+@year_blueprint.route('/api/get-all-leap-years')
 def get_all_leap_years():
     response_object = {
         'status': 'success',
