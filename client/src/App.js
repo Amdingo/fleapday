@@ -21,12 +21,13 @@ export class App extends Component {
     username: '',
     email: '',
     title: 'FleapDay',
+    leapDay: '',
     isAuthenticated: false
   };
 
   getAllLeapYears = () => {
     axios
-      .get(`${process.env.REACT_APP_LEAP_YEAR_SERVICE_URL}/get-all-leap-years`)
+      .get(`${process.env.REACT_APP_FLEAP_SERVICE_URL}/api/get-all-leap-years`)
       .then(res => {
         this.setState({ users: res.data.data.allLeapYears });
       })
@@ -36,7 +37,7 @@ export class App extends Component {
   };
 
   handleLeapInputSubmit = value => {
-    const url = `${process.env.REACT_APP_LEAP_YEAR_SERVICE_URL}/get-leap-day`;
+    const url = `${process.env.REACT_APP_FLEAP_SERVICE_URL}/api/get-leap-day`;
     axios
       .post(url, value)
       .then(res => {
@@ -67,11 +68,15 @@ export class App extends Component {
                         exact
                         path={'/'}
                         render={() => (
-                            <LeapInput
+                            [<LeapInput
                                 title={'Get Leap Day'}
                                 formType={'leap'}
                                 onSubmit={this.handleLeapInputSubmit}
-                            />
+                            />,
+                            {this.state.leapDay !== '' ?
+                              <LeapDay leapday={this.state.leapday} />
+                              :
+                              undefined}]
                         )}
                     />
                     <Route exact path={'/about'} component={About} />
