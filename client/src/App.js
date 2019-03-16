@@ -68,15 +68,11 @@ export class App extends Component {
                         exact
                         path={'/'}
                         render={() => (
-                            [<LeapInput
+                            <LeapInput
                                 title={'Get Leap Day'}
                                 formType={'leap'}
                                 onSubmit={this.handleLeapInputSubmit}
-                            />,
-                            {this.state.leapDay !== '' ?
-                              <LeapDay leapday={this.state.leapday} />
-                              :
-                              undefined}]
+                            />
                         )}
                     />
                     <Route exact path={'/about'} component={About} />
