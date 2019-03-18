@@ -1,4 +1,4 @@
-version: '3.6'
+version: '3'
 
 services:
   fleap:
@@ -26,7 +26,7 @@ services:
     environment:
       - NODE_ENV=development
       - REACT_APP_FLEAP_SERVICE_URL=${REACT_APP_FLEAP_SERVICE_URL}
-      - CHIKIDAR_USEPOLLING=true
+      - CHOKIDAR_USEPOLLING=true
     depends_on:
       - fleap
 
