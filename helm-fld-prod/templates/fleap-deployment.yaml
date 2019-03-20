@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: fleap
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: fleap
+    spec:
+      containers:
+      - env:
+        - name: APP_SETTINGS
+          value: project.config.DevelopmentConfig
+        - name: FLASK_ENV
+          value: development
+        - name: SECRET_KEY
+          value: my_precious
+        name: fleap
+        image: fleap:latest
+        ports:
+          - containerPort: 5000

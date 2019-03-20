@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    service: client
+  name: client
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        service: client
+    spec:
+      containers:
+        - env:
+            - name: NODE_ENV
+              value: production
+          image: client
+          name: client
+          ports:
+            - containerPort: 3000
+      restartPolicy: Always
