@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  fleap:
+    build:
+      context: ./service
+      dockerfile: Dockerfile-prod
+    volumes:
+      - './service:/usr/src/app'
+    expose:
+      - '5000'
+    environment:
+      - FLASK_ENV=development
+      - APP_SETTINGS=project.config.DevelopmentConfig
+      - SECRET_KEY=my_precious
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile-prod
+    volumes:
+      - './client:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    ports:
+      - 3007:80
+    environment:
+      - NODE_ENV=development
+      - REACT_APP_FLEAP_SERVICE_URL=${REACT_APP_FLEAP_SERVICE_URL}
+      - CHOKIDAR_USEPOLLING=true
+    depends_on:
+      - fleap
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile-prod
+    restart: always
+    ports:
+      - 80:80
+    depends_on:
+      - fleap
+      - client
