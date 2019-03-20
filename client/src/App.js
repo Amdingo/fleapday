@@ -25,9 +25,11 @@ export class App extends Component {
     isAuthenticated: false
   };
 
+  rafsu = process.env.REACT_APP_FLEAP_SERVICE_URL !== undefined ? process.env.REACT_APP_FLEAP_SERVICE_URL : '';
+
   getAllLeapYears = () => {
     axios
-      .get(`${process.env.REACT_APP_FLEAP_SERVICE_URL}/api/get-all-leap-years`)
+      .get(`${this.rafsu}/api/get-all-leap-years`)
       .then(res => {
         this.setState({ users: res.data.data.allLeapYears });
       })
@@ -38,7 +40,7 @@ export class App extends Component {
 
   handleLeapInputSubmit = value => {
     const options = {
-      url: `${process.env.REACT_APP_FLEAP_SERVICE_URL}/api/get-leap-day/${value.year}`,
+      url: `${this.rafsu}/api/get-leap-day/${value.year}`,
       method: 'get',
       headers: {
         'Content-Type': 'application/json',
