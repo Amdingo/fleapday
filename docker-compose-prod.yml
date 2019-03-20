@@ -5,8 +5,6 @@ services:
     build:
       context: ./service
       dockerfile: Dockerfile-prod
-    volumes:
-      - './service:/usr/src/app'
     expose:
       - '5000'
     environment:
@@ -18,9 +16,6 @@ services:
     build:
       context: ./client
       dockerfile: Dockerfile-prod
-    volumes:
-      - './client:/usr/src/app'
-      - '/usr/src/app/node_modules'
     ports:
       - 3007:80
     environment:
