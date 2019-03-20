@@ -12,7 +12,7 @@ spec:
         service: nginx
     spec:
       containers:
-      - image: nginx
+      - image: amdingo/nginx:latest
         name: nginx
         ports:
         - containerPort: 80

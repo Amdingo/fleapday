@@ -18,6 +18,6 @@ spec:
         - name: SECRET_KEY
           value: my_precious
         name: fleap
-        image: fleap:latest
+        image: amdingo/fleap:latest
         ports:
           - containerPort: 5000

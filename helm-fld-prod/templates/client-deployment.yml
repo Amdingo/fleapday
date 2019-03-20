@@ -17,7 +17,7 @@ spec:
         - env:
             - name: NODE_ENV
               value: production
-          image: client
+          image: amdingo/client:latest
           name: client
           ports:
             - containerPort: 3000
