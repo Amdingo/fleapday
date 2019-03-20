@@ -15,6 +15,8 @@ RUN pip install -r requirements.txt
 
 # add a bash script
 COPY ./entrypoint.sh /usr/src/app/entrypoint.sh
+# make sure entrypoint is executable
+RUN chmod +x /usr/src/app/entrypoint.sh
 
 # add app
 COPY . /usr/src/app
