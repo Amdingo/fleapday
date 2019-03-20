@@ -1,1 +1,1 @@
-Helm Chart mapping the `docker-compose.yaml` to a suitable kubernetes deployment
+pseudo Helm Chart mapping the `docker-compose.yaml` to a suitable kubernetes deployment of the development stack
