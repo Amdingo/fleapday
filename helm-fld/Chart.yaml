@@ -1,7 +1,0 @@
-name: helm-fld
-description: A react/flask api and end user application for determining leap year
-version: 0.0.1
-keywords:
-  - helm-fld
-sources:
-  - https://github.com/Amdingo/fleapday
