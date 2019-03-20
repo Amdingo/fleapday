@@ -5,6 +5,7 @@ metadata:
     service: nginx
   name: nginx
 spec:
+  type: NodePort
   ports:
   - name: "80"
     port: 80
