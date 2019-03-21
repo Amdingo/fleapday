@@ -19,7 +19,7 @@ else (it is a leap year)
 
 def is_leap_year(year):
     # verify that we're getting the input we want
-    if len(year) != 4:
+    if len(str(year)) != 4:
         raise ValueError("Year should be 4 digits exactly (e.g. 1984)")
     # convert to int in case we accidentally receive a string
     year = int(year)
