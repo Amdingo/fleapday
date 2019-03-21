@@ -3,7 +3,7 @@ import utils
 
 
 @click.command()
-@click.option('--year', default=1984, help='A year expressed in four-digit form')
+@click.option('--year', '-y', default=1984, help='A year expressed in four-digit form')
 def ily(year):
     """Checks if a year is a leap year or not"""
     print(f"{year} is a leap year!" if utils.is_leap_year(year) else f"{year} is not a leap year :(")
@@ -16,7 +16,7 @@ def galy():
 
 
 @click.command()
-@click.option('--year', default=1984, help='A year expressed in four-digit form')
+@click.option('--year', '-y', default=1984, help='A year expressed in four-digit form')
 def gld(year):
     ld = utils.get_leap_day(year)
     click.echo(f"In the year {year}, leap day is on a {ld}")
