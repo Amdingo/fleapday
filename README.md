@@ -4,4 +4,4 @@ Please see https://github.com/Amdingo/fleapday/blob/master/cli for CLI instructi
 
 Please see https://github.com/Amdingo/fleapday/tree/master/service for flask based API server instructions
 
-Pending is react front-end for end-user experience.  The front-end can be accessed via `docker-compose up` with docker installed.  functionality is intermittent until updated otherwise.
+docker-compose -f docker-compose-dev.yml up for development environment with hot reloading
